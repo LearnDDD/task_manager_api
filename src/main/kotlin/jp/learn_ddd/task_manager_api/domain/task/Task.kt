@@ -1,13 +1,14 @@
 package jp.learn_ddd.task_manager_api.domain.task
 
-class TaskId(value: Int) {
-    val value = value
+data class TaskId(var value: Int) {
 }
 
-class Task(id: TaskId) {
-    val id = id
+data class Task(var id: TaskId) {
 }
 
-class Tasks(list: List<Task>) {
-    val list = list
+data class Tasks(var list: List<Task>) {
+}
+
+interface TaskRepository {
+    fun getAll(): Tasks
 }

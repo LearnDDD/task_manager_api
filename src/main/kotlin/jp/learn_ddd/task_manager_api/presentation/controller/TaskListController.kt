@@ -1,5 +1,6 @@
 package jp.learn_ddd.task_manager_api.presentation.controller
 
+import jp.learn_ddd.task_manager_api.application.usecase.GetAllTaskService
 import jp.learn_ddd.task_manager_api.domain.task.Task
 import jp.learn_ddd.task_manager_api.domain.task.TaskId
 import jp.learn_ddd.task_manager_api.domain.task.Tasks
@@ -13,11 +14,18 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/task/list")
 class TaskListController {
+    var getAllTaskService: GetAllTaskService
+
     @GetMapping
     fun get(): ResponseEntity<Tasks> {
+//        val tasks = getAllTaskService.execute()
         val task = Task(TaskId(1))
         val tasks = Tasks(listOf(task));
         val headers = HttpHeaders()
         return ResponseEntity(tasks, headers, HttpStatus.OK)
+    }
+
+    constructor(getAllTaskService: GetAllTaskService) {
+        this.getAllTaskService = getAllTaskService
     }
 }
