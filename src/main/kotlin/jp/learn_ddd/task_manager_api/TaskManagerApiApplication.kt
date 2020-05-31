@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class TaskManagerApiApplication
 
 fun main(args: Array<String>) {
-	runApplication<TaskManagerApiApplication>(*args)
+    runApplication<TaskManagerApiApplication>(*args)
 }
