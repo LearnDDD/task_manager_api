@@ -18,9 +18,7 @@ class TaskListController {
 
     @GetMapping
     fun get(): ResponseEntity<Tasks> {
-//        val tasks = getAllTaskService.execute()
-        val task = Task(TaskId(1))
-        val tasks = Tasks(listOf(task));
+        val tasks = getAllTaskService.execute()
         val headers = HttpHeaders()
         return ResponseEntity(tasks, headers, HttpStatus.OK)
     }
