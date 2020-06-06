@@ -1,0 +1,15 @@
+version: "2"
+services:
+  app:
+    container_name: task_manager_api_application
+    build: ./
+    depends_on:
+      - mysql
+    ports:
+      - "8080:8080"
+    environment:
+      spring.datasource.driverClassName: "com.mysql.cj.jdbc.Driver"
+      spring.datasource.url: "jdbc:mysql://localhost:3306/task_manager"
+      spring.datasource.username: "root"
+      spring.datasource.password: "root"
+    tty: true

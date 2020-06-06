@@ -1,0 +1,28 @@
+version: "2"
+services:
+  mysql:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    container_name: MySQL
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./tools/docker/db/mysql_data:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: developer
+      MYSQL_PASSWORD: developer
+  app:
+    container_name: task_manager_api_application
+    build: ./
+    depends_on:
+      - mysql
+    ports:
+      - "8080:8080"
+    environment:
+      spring.datasource.driverClassName: "com.mysql.cj.jdbc.Driver"
+      spring.datasource.url: "jdbc:mysql://mysql/task_manager"
+      spring.datasource.username: "root"
+      spring.datasource.password: "root"
+    tty: true
