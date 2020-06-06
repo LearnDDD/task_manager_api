@@ -1,41 +1,24 @@
 package jp.learn_ddd.task_manager_api.domain.task
 
-class TaskId {
-    var value: Int
+data class TaskId(val value: Int)
 
-    constructor() {
-        this.value = 0
-    }
-    constructor(value: Int) {
-        this.value = value
-    }
-    constructor(value: String) {
-        this.value = Integer.parseInt(value)
-    }
+data class Title(val value: String)
+
+data class Details(val value: String)
+
+data class TaskTypeId(val value: Int)
+
+class Task(
+        val id: TaskId,
+        val title: Title,
+        val details: Details,
+        val taskTypeId: TaskTypeId,
+        val parentTaskId: TaskId) {
+    constructor() : this(TaskId(0), Title(""), Details(""), TaskTypeId(0), TaskId(0))
 }
 
-class Task {
-    var id: TaskId
-
-    constructor() {
-        this.id = TaskId()
-    }
-
-    constructor(id: TaskId) {
-        this.id = id
-    }
-}
-
-class Tasks {
-    var list: List<Task>
-
-    constructor() {
-        this.list = ArrayList()
-    }
-
-    constructor(list: List<Task>) {
-        this.list = list
-    }
+class Tasks(val list: List<Task>) {
+    constructor() : this(ArrayList())
 }
 
 interface TaskRepository {
