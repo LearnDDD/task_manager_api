@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="jp.learn_ddd.task_manager_api.infrastructure.datasource.task.TaskMapper">
+  <resultMap id="Task" type="jp.learn_ddd.task_manager_api.domain.task.Task">
+    <id property="id.value" column="id" />
+    <result property="title.value" column="title" />
+    <result property="details.value" column="details" />
+    <result property="taskTypeId.value" column="taskTypeId" />
+    <result property="parentTaskId.value" column="parentTaskId" />
+  </resultMap>
+
+  <select id="getAll" resultMap="Task">
+    SELECT task.id, task.title
+      FROM task_manager.task
+  </select>
+</mapper>
