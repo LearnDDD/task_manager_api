@@ -10,7 +10,7 @@
   </resultMap>
 
   <select id="getAll" resultMap="Task">
-    SELECT task.id, task.title
+    SELECT task.id, task.title, task.details, task.taskTypeId, task.parentTaskId
       FROM task_manager.task
   </select>
 </mapper>
