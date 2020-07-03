@@ -17,7 +17,7 @@ class Task(
     constructor() : this(TaskId(0), Title(""), Details(""), TaskTypeId(0), TaskId(0))
 }
 
-class Tasks(val list: List<Task>) {
+class Tasks(val tasks: List<Task>) {
     constructor() : this(ArrayList())
 }
 
