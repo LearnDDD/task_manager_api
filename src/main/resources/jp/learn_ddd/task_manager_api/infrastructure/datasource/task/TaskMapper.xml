@@ -13,4 +13,19 @@
     SELECT task.id, task.title, task.details, task.taskTypeId, task.parentTaskId
       FROM task_manager.task
   </select>
+
+  <insert id="register">
+    INSERT INTO task_manager.task (
+      title,
+      details,
+      taskTypeId,
+      parentTaskId
+    ) VALUES (
+      #{task.title.value},
+      #{task.details.value},
+      #{task.taskTypeId.value},
+      #{task.parentTaskId.value}
+    )
+
+  </insert>
 </mapper>

@@ -1,12 +1,14 @@
 package jp.learn_ddd.task_manager_api.domain.task
 
-data class TaskId(val value: Int)
+data class TaskId(var value: Int)
 
-data class Title(val value: String)
+data class Title(var value: String) {
+    constructor(): this("")
+}
 
-data class Details(val value: String)
+data class Details(var value: String)
 
-data class TaskTypeId(val value: Int)
+data class TaskTypeId(var value: Int)
 
 class Task(
         val id: TaskId,
@@ -23,4 +25,5 @@ class Tasks(val tasks: List<Task>) {
 
 interface TaskRepository {
     fun getAll(): Tasks
+    fun register(task: ComposingTask)
 }
