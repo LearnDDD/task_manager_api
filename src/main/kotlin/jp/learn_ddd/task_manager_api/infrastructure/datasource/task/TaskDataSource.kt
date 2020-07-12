@@ -1,6 +1,6 @@
 package jp.learn_ddd.task_manager_api.infrastructure.datasource.task
 
-import jp.learn_ddd.task_manager_api.domain.task.ComposingTask
+import jp.learn_ddd.task_manager_api.application.usecase.ComposingTask
 import jp.learn_ddd.task_manager_api.domain.task.TaskRepository
 import jp.learn_ddd.task_manager_api.domain.task.Tasks
 import org.springframework.stereotype.Repository

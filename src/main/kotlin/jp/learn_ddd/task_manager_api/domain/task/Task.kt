@@ -1,14 +1,18 @@
 package jp.learn_ddd.task_manager_api.domain.task
 
-data class TaskId(var value: Int)
+import jp.learn_ddd.task_manager_api.application.usecase.ComposingTask
 
-data class Title(var value: String) {
-    constructor(): this("")
+data class TaskId(var value: Int) {
+    constructor(value: String): this(value.toInt())
 }
+
+data class Title( var value: String)
 
 data class Details(var value: String)
 
-data class TaskTypeId(var value: Int)
+data class TaskTypeId(var value: Int) {
+    constructor(value: String): this(value.toInt())
+}
 
 class Task(
         val id: TaskId,
