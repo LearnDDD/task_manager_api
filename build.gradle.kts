@@ -22,6 +22,10 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1")
+
+    // Cloud RunからCloud SQLへアクセスするために必要
+    implementation("com.google.cloud.sql:mysql-socket-factory-connector-j-8:1.2.0")
+
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("mysql:mysql-connector-java")
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
